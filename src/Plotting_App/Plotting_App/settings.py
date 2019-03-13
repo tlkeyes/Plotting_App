@@ -80,7 +80,7 @@ DATABASES = {
     },
     'default': {
         'ENGINE': 'sql_server.pyodbc',
-        'NAME': 'PlottingAppDB',
+        'NAME': 'DjangoPlottingDB',
         'HOST': 'thasql2\dev2016',
         'OPTIONS': {
             'driver': 'SQL Server Native Client 11.0',
