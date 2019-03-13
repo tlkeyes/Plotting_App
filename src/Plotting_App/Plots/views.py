@@ -6,7 +6,7 @@ def home_view(request):
     context = {
         'title': 'Home'
     }
-    return render(request, 'Plots/base.html', context)
+    return render(request, 'Plots/home.html', context)
 
 def about_view(request):
     context = {
