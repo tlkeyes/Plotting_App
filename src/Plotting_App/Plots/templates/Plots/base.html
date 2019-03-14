@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
+  {% load static %}
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -9,7 +10,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 
     {% if title %}
         <title>Plotting App - {{ title }}</title>
@@ -18,7 +19,7 @@
     {% endif %}
 
   </head>
-  {% include 'Plots/navbar.html' %}
+  {% include 'Plots/navbar_test.html' %}
 
   <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
   <div class="container-fluid text-center">

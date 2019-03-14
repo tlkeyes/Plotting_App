@@ -1,5 +1,17 @@
 {% extends 'Plots/base.html' %}
 
-{% block title %}
-{% endblock title %}
+{% block content %}
+<!-- BOKEH LINKS AND SCRIPTS BELOW-->
+<link href="https://cdn.pydata.org/bokeh/release/bokeh-1.0.4.min.css" rel="stylesheet" type="text/css">
+<link href="https://cdn.pydata.org/bokeh/release/bokeh-widgets-1.0.4.min.css" rel="stylesheet" type="text/css">
+<link href="https://cdn.pydata.org/bokeh/release/bokeh-tables-1.0.4.min.css" rel="stylesheet" type="text/css">
+<h2>The Plot Data Should Render Below This Point:</h2>
+<div class='container-fluid'>
+    {{ div | safe}}
+    {{ script | safe }}
+</div>
+<script src="https://cdn.pydata.org/bokeh/release/bokeh-1.0.4.min.js"></script>
+<script src="https://cdn.pydata.org/bokeh/release/bokeh-widgets-1.0.4.min.js"></script>
+<script src="https://cdn.pydata.org/bokeh/release/bokeh-tables-1.0.4.min.js"></script>
+{% endblock content %}
 

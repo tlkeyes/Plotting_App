@@ -13,3 +13,4 @@ def about_view(request):
         'title': 'About'
     }
     return render(request, 'Plots/about.html', context)
+
