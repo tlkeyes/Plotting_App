@@ -7,7 +7,7 @@ from bokeh.transform import jitter
 from django.db.models import Sum
 
 # IMPORT MODELS
-from plots.models import RawMonthlyCurrent2 as RawData
+from .models import RawMonthlyCurrent2 as RawData
 
 
 #   BELOW ARE THE TEST FUNTCIONS FOR COLLECTING THE DATA
@@ -43,14 +43,14 @@ def create_tabs_test(source, measure_names):
     for i in measure_names:
         # Import Data
         view_id = []
-        view_id = source.loc[i]   
+        view_id = source.loc[i].copy()  
 
         # U Chart Data
         u_hat = (view_id.numerator[view_id['year']==2016].sum()/view_id.denominator[view_id['year']==2016].sum())*1000
-        view_id['3lower'] = u_hat - 3*np.sqrt(u_hat/(view_id['denominator']/1000))
-        view_id['3upper'] = u_hat + 3*np.sqrt(u_hat/(view_id['denominator']/1000))
-        view_id['2lower'] = u_hat - 2*np.sqrt(u_hat/(view_id['denominator']/1000))
-        view_id['2upper'] = u_hat + 2*np.sqrt(u_hat/(view_id['denominator']/1000))
+        view_id['3lower'] = u_hat - 3*np.sqrt(u_hat/(view_id.denominator/1000))
+        view_id['3upper'] = u_hat + 3*np.sqrt(u_hat/(view_id.denominator/1000))
+        view_id['2lower'] = u_hat - 2*np.sqrt(u_hat/(view_id.denominator/1000))
+        view_id['2upper'] = u_hat + 2*np.sqrt(u_hat/(view_id.denominator/1000))
 
         # Create histogram data
         hist, edges = np.histogram(view_id['numerator'], density=True, bins=20)
@@ -81,8 +81,8 @@ def create_tabs_test(source, measure_names):
         f3.add_layout(band_3)
         f3.add_layout(band_2)
 
-        l = gridplot([f1,f2,f3], ncols=3, plot_height=400, plot_width=450, toolbar_location=None)
-        #l = column(row(f1,f2),row(f3))
+        #l = gridplot([f1,f2,f3], ncols=3, plot_height=400, plot_width=450, toolbar_location=None)
+        l = column(row(f1,f2),row(f3))
         tab_data['panel'].append(Panel(child=l, title=i))
 
     return tab_data
