@@ -34,7 +34,7 @@ def plot_view(request):
 
 def shards_view(request):
     context = {}
-    return render(request, 'Plots/shards_example.html', context)
+    return render(request, 'Plots/shards_copy.html', context)
 
 def plot_view_def_test(request):
     # COLLECT DATA
