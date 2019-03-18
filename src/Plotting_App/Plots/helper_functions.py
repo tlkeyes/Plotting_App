@@ -13,7 +13,7 @@ from .models import RawMonthlyCurrent2 as RawData
 #   BELOW ARE THE TEST FUNTCIONS FOR COLLECTING THE DATA
 def collect_source_test(facility):
     source = RawData.objects.filter(jarid=facility, year__gte=2016)
-    source = source.filter(process_outcome='Outcome', measure_name__in=['Clabsi', 'Cauti'])
+    source = source.filter(process_outcome='Outcome')
     source = source.values('measure_name', 'year', 'month').annotate(numerator=Sum('numerator'), denominator=Sum('denominator'))
 
     measure_names = source.values_list('measure_name', flat=True).distinct()

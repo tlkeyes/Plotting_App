@@ -32,6 +32,9 @@ def plot_view(request):
     }
     return render(request, 'Plots/plot.html', context)
 
+def sidenav_view(request):
+    
+
 def shards_view(request):
     context = {}
     return render(request, 'Plots/shards_example.html', context)

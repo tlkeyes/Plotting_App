@@ -5,48 +5,101 @@
 <link href="https://cdn.pydata.org/bokeh/release/bokeh-1.0.4.min.css" rel="stylesheet" type="text/css">
 <link href="https://cdn.pydata.org/bokeh/release/bokeh-widgets-1.0.4.min.css" rel="stylesheet" type="text/css">
 <link href="https://cdn.pydata.org/bokeh/release/bokeh-tables-1.0.4.min.css" rel="stylesheet" type="text/css">
-<h2>The Plot Data Should Render Below This Point:</h2>
-
-<!-- MIMIC THIS PATTERN -->
-{% comment %} <ul class="nav nav-tabs" id="myTab" role="tablist">
-  <li class="nav-item">
-    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
-  </li>
-</ul>
-
-<div class="tab-content" id="myTabContent">
-  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">stuff1</div>
-  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">stuff2</div>
-  <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">stuff3</div>
-</div> {% endcomment %}
-<!-- FINISH PATTERN -->
-<ul class="nav nav-tabs" id="myTab" role="tablist">
-{% for i in measure_names %}
-    {% if forloop.counter0 == 0 %}
-    <li class="nav-item">
-        <a class='nav-link active' id="{{i}}-tab" data-toggle='tab' href='#{{i}}' aria-controls='{{i}}' aria-selected='false'>{{i}}</a>
-    </li>
-    {% else %}
-    <li class="nav-item">
-        <a class='nav-link' id="{{i}}-tab" data-toggle='tab' href='#{{i}}' aria-controls='{{i}}' aria-selected='false'>{{i}}</a>
-    </li>
-    {% endif %}
-{% endfor %}
-</ul>
-
-{% comment %} <div class="tab-content" id="myTabContent">
-{% for i in measure_names %}
-  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">stuff1</div>
-  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">stuff2</div>
-  <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">stuff3</div>
-{% endfor %}
-</div> {% endcomment %}
+<div class='container-fluid'>
+  <h2>The Plot Data Should Render Below This Point:</h2>
+  <!-- CREATE SIDE NAV BAR COMPONENTS -->
+  <!-- END SIDE NAV COMPONENTS -->
+  
+  <!-- BEGIN ROW CARDS FOR TOP SUMMARY -->
+  <div class="row">
+    <div class="col-lg col-md-6 col-sm-6 mb-4">
+      <div class="stats-small stats-small--1 card card-small">
+        <div class="card-columns p-0 d-flex">
+          <div class="d-flex flex-column m-auto">
+            <div class="stats-small__data text-center">
+              <span class="stats-small__label text-uppercase">Infections</span>
+              <h6 class="stats-small__value count my-3">2,390</h6>
+            </div>
+            <div class="stats-small__data">
+              <span class="stats-small__percentage stats-small__percentage--increase">4.7%</span>
+            </div>
+          </div>
+          <canvas height="120" class="blog-overview-stats-small-1"></canvas>
+        </div>
+      </div>
+    </div>
+    <!-- this is the end of one list element -->
+    <div class="col-lg col-md-6 col-sm-6 mb-4">
+      <div class="stats-small stats-small--1 card card-small">
+        <div class="card-columns p-0 d-flex">
+          <div class="d-flex flex-column m-auto">
+            <div class="stats-small__data text-center">
+              <span class="stats-small__label text-uppercase">YTD Infections</span>
+              <h6 class="stats-small__value count my-3">2,390</h6>
+            </div>
+            <div class="stats-small__data">
+              <span class="stats-small__percentage stats-small__percentage--increase">4.7%</span>
+            </div>
+          </div>
+          <canvas height="120" class="blog-overview-stats-small-1"></canvas>
+        </div>
+      </div>
+    </div>
+    <!-- this is the end of one list element -->
+    <div class="col-lg col-md-6 col-sm-6 mb-4">
+      <div class="stats-small stats-small--1 card card-small">
+        <div class="card-columns p-0 d-flex">
+          <div class="d-flex flex-column m-auto">
+            <div class="stats-small__data text-center">
+              <span class="stats-small__label text-uppercase">Cost of Event</span>
+              <h6 class="stats-small__value count my-3">2,390</h6>
+            </div>
+            <div class="stats-small__data">
+              <span class="stats-small__percentage stats-small__percentage--increase">4.7%</span>
+            </div>
+          </div>
+          <canvas height="120" class="blog-overview-stats-small-1"></canvas>
+        </div>
+      </div>
+    </div>
+    <!-- this is the end of one list element -->
+    <div class="col-lg col-md-6 col-sm-6 mb-4">
+      <div class="stats-small stats-small--1 card card-small">
+        <div class="card-columns p-0 d-flex">
+          <div class="d-flex flex-column m-auto">
+            <div class="stats-small__data text-center">
+              <span class="stats-small__label text-uppercase">Infections</span>
+              <h6 class="stats-small__value count my-3">2,390</h6>
+            </div>
+            <div class="stats-small__data">
+              <span class="stats-small__percentage stats-small__percentage--increase">4.7%</span>
+            </div>
+          </div>
+          <canvas height="120" class="blog-overview-stats-small-1"></canvas>
+        </div>
+      </div>
+    </div>
+    <!-- this is the end of one list element -->
+    <div class="col-lg col-md-6 col-sm-6 mb-4">
+      <div class="stats-small stats-small--1 card card-small">
+        <div class="card-columns p-0 d-flex">
+          <div class="d-flex flex-column m-auto">
+            <div class="stats-small__data text-center">
+              <span class="stats-small__label text-uppercase">Random Metric</span>
+              <h6 class="stats-small__value count my-3">2,390</h6>
+            </div>
+            <div class="stats-small__data">
+              <span class="stats-small__percentage stats-small__percentage--increase">4.7%</span>
+            </div>
+          </div>
+          <canvas height="120" class="blog-overview-stats-small-1"></canvas>
+        </div>
+      </div>
+    </div>
+    <!-- this is the end of one list element -->
+  </div>
+  <!-- END CARD COMPONENTS-->
+</div>
 <script src="https://cdn.pydata.org/bokeh/release/bokeh-1.0.4.min.js"></script>
 <script src="https://cdn.pydata.org/bokeh/release/bokeh-widgets-1.0.4.min.js"></script>
 <script src="https://cdn.pydata.org/bokeh/release/bokeh-tables-1.0.4.min.js"></script>

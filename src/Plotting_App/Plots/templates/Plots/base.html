@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/shards.css' %}">
 
     {% if title %}
         <title>Plotting App - {{ title }}</title>
@@ -19,29 +19,23 @@
     {% endif %}
 
   </head>
-  {% include 'Plots/navbar_test.html' %}
+<!-- side nav -->
 
-  <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
-  <div class="container-fluid text-center">
-      <div class="jumbotron text-left">
-        <h1>Plotting With Bokeh:</h1>
-        <h1>Using Django</h1>
-        <p>This page serves as a platform to test <b>Bokeh Plotting</b> within <b>Django</b></p>
-      </div>
-  </div>
+<!-- / .main-navbar -->
   <div class="main-content-container container-fluid px-4">
-
-
-  
+    <!-- Page Header -->
+    <div class="page-header row no-gutters py-4">
+      <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+        <span class="text-uppercase page-subtitle">Dashboard</span>
+        <h3 class="page-title">Plotting Application</h3>
+      </div>
+    </div>
+  </div>
+    <!-- End Page Header -->
 
   <!-- Template Content into Base Page -->
-  <div class="container-fluid text-center">    
+   <div class="container-fluid text-center">    
       <div class="row content">
-        <div class="col-sm-1 sidenav rcorners">
-          <p><a href="#"><b>Measure1</b></a></p>
-          <p><a href="#"><b>Measure2</b></a></p>
-          <p><a href="#"><b>Measure3</b></a></p>
-        </div>
         <div class="col-sm-10 text-left"> 
           {% block content %}
           {% endblock content%}
@@ -49,7 +43,7 @@
           <h2>This is the end of the Page</h2>
         </div>
       </div>
-    </div>
+    </div> 
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
