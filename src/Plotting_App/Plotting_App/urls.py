@@ -15,12 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from Plots.views import home_view, about_view, plot_view, shards_view
+from Plots.views import HomeView, ChartData, ShardView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home_view, name='plots-home'),
-    path('plots', plot_view, name='plots-plots'),
-    path('shards', shards_view, name='shards-example'),
-    path('plots/about', about_view, name='plots-about'),
+    path('', HomeView.as_view(), name='home'),
+    path('api/chart/data', ChartData.as_view(), name='api-chart-data'),
+    path('shards', ShardView.as_view(), name='shard'),
 ]

@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'Plots',
 
     # THIRD-PARTY APPLICATIONS
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -85,8 +86,8 @@ DATABASES = {
     },
     'default': {
         'ENGINE': 'sql_server.pyodbc',
-        'NAME': 'DjangoPlottingDB',
-        'HOST': 'thasql2\dev2016',
+        'NAME': 'PlottingApp',
+        'HOST': 'DESKTOP-E2QT4E4\HOMESERVER',
         'OPTIONS': {
             'driver': 'SQL Server Native Client 11.0',
         },
