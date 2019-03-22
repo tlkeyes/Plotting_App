@@ -1,129 +1,15 @@
-@media (min-width: 992px) {
-    .animate {
-      animation-duration: 0.3s;
-      -webkit-animation-duration: 0.3s;
-      animation-fill-mode: both;
-      -webkit-animation-fill-mode: both;
-    }
-  }
-  
-  @keyframes slideIn {
-    0% {
-      transform: translateY(1rem);
-      opacity: 0;
-    }
-    100% {
-      transform:translateY(0rem);
-      opacity: 1;
-    }
-    0% {
-      transform: translateY(1rem);
-      opacity: 0;
-    }
-  }
-  
-  @-webkit-keyframes slideIn {
-    0% {
-      -webkit-transform: transform;
-      -webkit-opacity: 0;
-    }
-    100% {
-      -webkit-transform: translateY(0);
-      -webkit-opacity: 1;
-    }
-    0% {
-      -webkit-transform: translateY(1rem);
-      -webkit-opacity: 0;
-    }
-  }
-  
-.card-post .card-body{
-    padding:1.5625rem 1.5625rem
+/* Other styles related to cards below the uchart canvas */
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  grid-auto-flow: dense;
+  list-style: none;
 }
-.card-post .card-footer,.card-post .card-header{
-    padding-left:1.5625rem;
-    padding-right:1.5625rem
+
+.chart-container {
+  position: relative;
+  margin: auto;
+  height: 80vh;
+  width: 80vw;
 }
-.card-post__image{
-    position:relative;
-    min-height:10.3125rem;
-    border-top-left-radius:.625rem;
-    border-top-right-radius:.625rem;
-    background-size:cover;
-    background-position:center;
-    background-repeat:no-repeat
-}
-.card-post__author-avatar{
-    width:2.8125rem;
-    height:2.8125rem;
-    box-shadow:0 0 0 .125rem #fff,0 .1875rem .4375rem rgba(90,97,105,.5);
-    display:block;
-    background-position:center;
-    background-size:cover;
-    border-radius:50%;
-    text-indent:-9999px
-}
-.card-post__author-avatar--small{
-    width:2.1875rem;
-    height:2.1875rem
-}
-.card-post__author-name{
-    font-weight:500
-}
-.card-post--aside{
-    display:-ms-flexbox;
-    display:flex;
-    -ms-flex-flow:row;
-    flex-flow:row
-}
-.card-post--aside .card-post__image{
-    border-top-right-radius:0;
-    border-top-left-radius:.625rem;
-    border-bottom-left-radius:.625rem;
-    min-width:180px
-}
-.card-post--1 .card-post__author,.card-post--1 .card-post__category{
-    position:absolute
-}
-.card-post--1 .card-post__author{
-    -webkit-transform:translateY(50%);
-    transform:translateY(50%);
-    margin-left:1.5625rem;
-    position:absolute;
-    bottom:0
-}
-.card-post--1 .card-post__category{
-    top:.9375rem;
-    right:.9375rem;
-    position:absolute;
-    text-transform:uppercase
-}
-.card-post--1 .card-body{
-    padding-top:2.1875rem
-}
-.card-post--1.card-post--aside .card-body{
-    padding:1.5625rem 1.5625rem
-}
-.card-post--1.card-post--aside .card-post__author{
-    left:.9375rem;
-    bottom:.9375rem;
-    -webkit-transform:none;
-    transform:none;
-    margin:0
-}
-.card-post--1.card-post--aside .card-post__category{
-    right:initial;
-    top:.9375rem;
-    left:.9375rem
-}
-  .slideIn {
-    -webkit-animation-name: slideIn;
-    animation-name: slideIn;
-  }
-  
-  /* Other styles for the page not related to the animated dropdown */
-  
-  body {
-    background: #bdbdbd;
-    background: linear-gradient(to right, #bdbdbd, #33AEFF);
-  }

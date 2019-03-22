@@ -3,6 +3,9 @@ from django.views.generic import TemplateView, View
 from bokeh.models import Tabs
 from bokeh.embed import components
 from django.conf import settings
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
+
 
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -44,11 +47,16 @@ def plot_view_def_test(request):
 
 class HomeView(View):
     def get(self, request, *args, **kwargs):
-        return render(request, 'Plots/base.html', {"customers": 10})
+        return render(request, 'Plots/base.html', {})
+
+class HomeView_test(View):
+    def get(self, request, *args, **kwargs):
+        return(render(request, 'Plots/base_test.html', {}))
 
 class ShardView(View):
     def get(self, request, *args, **kwargs):
         return render(request, 'Plots/shards_example.html', {})
+
 
 class ChartData(APIView):
     authentication_classes = []
@@ -58,10 +66,13 @@ class ChartData(APIView):
         """
         Return a dictionary of data.
         """
-        source, measure_names = collect_source_test(facility='19284')
+        source, measure_names, u_hat = collect_source_test(facility='19284')
         context = {
             'measure_names': measure_names,
+            'uHat': u_hat,
             'date': source['date'],
-            'rate': source['rate']
+            'rate': source['rate'],
+            'warning': source['2upper'],
+            'upper': source['3upper']
         }
         return Response(context)

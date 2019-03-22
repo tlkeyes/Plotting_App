@@ -1,7 +1,7 @@
 <!doctype html>
 <html class="no-js h-100" lang="en">
   <head>
-  {% load static %}
+    {% load static %}
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Shards Dashboard Lite - Free Bootstrap Admin Template – DesignRevision</title>
@@ -12,13 +12,14 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" id="main-stylesheet" data-version="1.1.0" href={% static "css/shards-dashboards.1.1.0.min.css"%}>
     <link rel="stylesheet" href={% static "css/extras.1.1.0.min.css"%}>
+    <link rel='stylesheet' href={% static "css/style.css" %}>
     <script async defer src="https://buttons.github.io/buttons.js"></script>
   </head>
   <body class="h-100">
     <div class="container-fluid">
       <div class="row">
         <!-- Main Sidebar -->
-        <aside class="main-sidebar col-12 col-md-3 col-lg-2 px-0">
+        <aside class="main-sidebar col-10 col-md-2 col-lg-2 px-0">
           <div class="main-navbar">
             <nav class="navbar align-items-stretch navbar-light bg-white flex-md-nowrap border-bottom p-0">
               <a class="navbar-brand w-100 mr-0" href="#" style="line-height: 25px;">
@@ -31,21 +32,21 @@
           <div class="nav-wrapper">
             <ul class="nav flex-column">
               <li class="nav-item">
-                <a class="nav-link active" href="index.html">
-                  <i class="material-icons">edit</i>
-                  <span>Application 1</span>
+                <a class="nav-link active" href="Plots/base_test.html">
+                <i class="material-icons">edit</i>
+                <span>Application 1</span>
                 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link " href="tables.html">
-                  <i class="material-icons">table_chart</i>
-                  <span>Tables</span>
+                <i class="material-icons">table_chart</i>
+                <span>Tables</span>
                 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link " href="errors.html">
-                  <i class="material-icons">error</i>
-                  <span>Errors</span>
+                <i class="material-icons">error</i>
+                <span>Errors</span>
                 </a>
               </li>
             </ul>
@@ -59,24 +60,24 @@
               <ul class="navbar-nav border-left flex-row ">
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle text-nowrap px-3" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                    <span class="d-none d-md-inline-block">Test User</span>
+                  <span class="d-none d-md-inline-block">Test User</span>
                   </a>
                   <div class="dropdown-menu dropdown-menu-small">
                     <a class="dropdown-item" href="user-profile-lite.html">
-                      <i class="material-icons">&#xE7FD;</i> Profile</a>
+                    <i class="material-icons">&#xE7FD;</i> Profile</a>
                     <a class="dropdown-item" href="components-blog-posts.html">
-                      <i class="material-icons">vertical_split</i> Blog Posts</a>
+                    <i class="material-icons">vertical_split</i> Blog Posts</a>
                     <a class="dropdown-item" href="add-new-post.html">
-                      <i class="material-icons">note_add</i> Add New Post</a>
+                    <i class="material-icons">note_add</i> Add New Post</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item text-danger" href="#">
-                      <i class="material-icons text-danger">&#xE879;</i> Logout </a>
+                    <i class="material-icons text-danger">&#xE879;</i> Logout </a>
                   </div>
                 </li>
               </ul>
               <nav class="nav">
                 <a href="#" class="nav-link nav-link-icon toggle-sidebar d-md-inline d-lg-none text-center border-left" data-toggle="collapse" data-target=".header-navbar" aria-expanded="false" aria-controls="header-navbar">
-                  <i class="material-icons">&#xE5D2;</i>
+                <i class="material-icons">&#xE5D2;</i>
                 </a>
               </nav>
             </nav>
@@ -91,7 +92,6 @@
               </div>
             </div>
             <!-- End Page Header -->
-
             <!-- Small Stats Blocks -->
             <div class="row">
               <div class="col-lg col-md-6 col-sm-6 mb-4">
@@ -106,7 +106,9 @@
                         <span class="stats-small__percentage stats-small__percentage--increase">4.7%</span>
                       </div>
                     </div>
-                    {% comment %} <canvas height="120" class="blog-overview-stats-small-1"></canvas> {% endcomment %}
+                    {% comment %} 
+                    <canvas height="120" class="blog-overview-stats-small-1"></canvas>
+                    {% endcomment %}
                   </div>
                 </div>
               </div>
@@ -122,7 +124,9 @@
                         <span class="stats-small__percentage stats-small__percentage--increase">12.4%</span>
                       </div>
                     </div>
-                    {% comment %} <canvas height="120" class="blog-overview-stats-small-2"></canvas> {% endcomment %}
+                    {% comment %} 
+                    <canvas height="120" class="blog-overview-stats-small-2"></canvas>
+                    {% endcomment %}
                   </div>
                 </div>
               </div>
@@ -138,7 +142,9 @@
                         <span class="stats-small__percentage stats-small__percentage--decrease">3.8%</span>
                       </div>
                     </div>
-                    {% comment %} <canvas height="120" class="blog-overview-stats-small-3"></canvas> {% endcomment %}
+                    {% comment %} 
+                    <canvas height="120" class="blog-overview-stats-small-3"></canvas>
+                    {% endcomment %}
                   </div>
                 </div>
               </div>
@@ -154,7 +160,9 @@
                         <span class="stats-small__percentage stats-small__percentage--increase">12.4%</span>
                       </div>
                     </div>
-                    {% comment %} <canvas height="120" class="blog-overview-stats-small-4"></canvas> {% endcomment %}
+                    {% comment %} 
+                    <canvas height="120" class="blog-overview-stats-small-4"></canvas>
+                    {% endcomment %}
                   </div>
                 </div>
               </div>
@@ -170,19 +178,22 @@
                         <span class="stats-small__percentage stats-small__percentage--decrease">2.4%</span>
                       </div>
                     </div>
-                    {% comment %} <canvas height="120" class="blog-overview-stats-small-5"></canvas> {% endcomment %}
+                    {% comment %} 
+                    <canvas height="120" class="blog-overview-stats-small-5"></canvas>
+                    {% endcomment %}
                   </div>
                 </div>
               </div>
             </div>
             <!-- End Small Stats Blocks -->
-            
             <div class="row">
               <!-- Users Stats -->
-              <div class="col-lg-8 col-md-12 col-sm-12 mb-4">
+              <div class="col-lg-6 col-md-12 col-sm-12 mb-4">
                 <div class="card card-small">
                   <div class="card-header border-bottom">
-                    {% comment %} <h6 class="m-0">Control Chart</h6> {% endcomment %}
+                    {% comment %} 
+                    <h6 class="m-0">Control Chart</h6>
+                    {% endcomment %}
                     <span class="text-uppercase page-subtitle">Control Chart</span>
                     <h4 class="page-title">U-Chart for Rates</h4>
                   </div>
@@ -193,56 +204,102 @@
                           <input type="text" class="input-sm form-control" name="start" placeholder="Start Date" id="blog-overview-date-range-1">
                           <input type="text" class="input-sm form-control" name="end" placeholder="End Date" id="blog-overview-date-range-2">
                           <span class="input-group-append">
-                            <span class="input-group-text">
-                              <i class="material-icons"></i>
-                            </span>
+                          <span class="input-group-text">
+                          <i class="material-icons"></i>
+                          </span>
                           </span>
                         </div>
                       </div>
                       <div class="col-12 col-sm-6 d-flex mb-2 mb-sm-0">
                         <button type="button" class="btn btn-sm btn-white ml-auto mr-auto ml-sm-auto mr-sm-0 mt-3 mt-sm-0">View Full Report &rarr;</button>
                       </div>
-
                     </div>
-                    {% comment %} <canvas height="130" style="max-width: 100% !important;" class="blog-overview-users"></canvas> {% endcomment %}
+                    {% comment %} 
+                    <canvas height="130" style="max-width: 100% !important;" class="blog-overview-users"></canvas>
+                    {% endcomment %}
                     <canvas id="uChart" height="130" style="max-width: 100% !important;"></canvas>
                   </div>
                 </div>
               </div>
               <!-- End Users Stats -->
               <!-- Users By Device Stats -->
-              <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+              <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
                 <div class="card card-small h-100">
                   <div class="card-header border-bottom">
                     <h6 class="m-0">Patient Days by Unit Type</h6>
                   </div>
                   <div class="card-body d-flex py-0">
-                    <canvas id="doughnut-chart" height="220" class="blog-users-by-device m-auto"></canvas>
+                    <canvas id="doughnut-chart" height="300" class="blog-users-by-device m-auto"></canvas>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
+                <div class="card card-small h-100">
+                  <div class="card-header border-bottom">
+                    <h6 class="m-0">Some Other Metric</h6>
+                  </div>
+                  <div class="card-body d-flex py-0">
+                    <canvas id="bar-chart" height="300" class="blog-users-by-device m-auto"></canvas>
                   </div>
                 </div>
               </div>
               <!-- End Users By Device Stats -->
             </div>
             <div class='row'>
-            
-            </div>
+              <div class="col-lg-8 col-md-12 col-sm-12 mb-4">
+                <div class="card card-small">
+                  <div class="card-header border-bottom">
+                    {% comment %} 
+                    <h6 class="m-0">Control Chart</h6>
+                    {% endcomment %}
+                    <span class="text-uppercase page-subtitle">Control Charts</span>
+                    <h4 class="page-title">U-Charts for Unit Types</h4>
+                  </div>
+                  <div class="card-body pt-0">
+                    <div class="row border-bottom py-2 bg-light">
+                      <div class="col-12 col-sm-6">
+                        <div id="blog-overview-date-range" class="input-daterange input-group input-group-sm my-auto ml-auto mr-auto ml-sm-auto mr-sm-0" style="max-width: 350px;">
+                          <input type="text" class="input-sm form-control" name="start" placeholder="Start Date" id="blog-overview-date-range-1">
+                          <input type="text" class="input-sm form-control" name="end" placeholder="End Date" id="blog-overview-date-range-2">
+                          <span class="input-group-append">
+                          <span class="input-group-text">
+                          <i class="material-icons"></i>
+                          </span>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="col-12 col-sm-6 d-flex mb-2 mb-sm-0">
+                        <button type="button" class="btn btn-sm btn-white ml-auto mr-auto ml-sm-auto mr-sm-0 mt-3 mt-sm-0">View Full Report &rarr;</button>
+                      </div>
+                    </div>
+                    <div class="wrapper">
+                        <div><canvas id="unitType1"></canvas></div>
+                        <div><canvas id="unitType2"></canvas></div>
+                        <div><canvas id="unitType3"></canvas></div>
+                        <div><canvas id="unitType4"></canvas></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <footer class="main-footer d-flex p-2 px-3 bg-white border-top">
-            <ul class="nav">
-              <li class="nav-item">
-                <a class="nav-link" href="#">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Products</a>
-              </li>
-            </ul>
-          </footer>
-        </main>
       </div>
+    </div>
+    <footer class="main-footer d-flex p-2 px-3 bg-white border-top">
+    <ul class="nav">
+    <li class="nav-item">
+    <a class="nav-link" href="#">Home</a>
+    </li>
+    <li class="nav-item">
+    <a class="nav-link" href="#">About</a>
+    </li>
+    <li class="nav-item">
+    <a class="nav-link" href="#">Products</a>
+    </li>
+    </ul>
+    </footer>
+    </main>
+    </div>
     </div>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -252,141 +309,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-annotation/0.5.7/chartjs-plugin-annotation.min.js"></script>
     <script src="https://unpkg.com/shards-ui@latest/dist/js/shards.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Sharrre/2.0.1/jquery.sharrre.min.js"></script>
-    
     <script src={% static "js/extras.1.1.0.min.js"%}></script>
     <script src={% static "js/shards-dashboards.1.1.0.min.js"%}></script>
-    <script>
-    endpoint = 'api/chart/data'
-    $.ajax({
-
-        method: "GET",
-        url : endpoint,
-        success: function(data){
-            date = data.date
-            uHat = data.u_hat
-            rate = data.rate
-            warning = data.warning
-            upper = data.upper
-            setChart('uChart', 'ctx1')
-            unitTypeChart('unitType1')
-            unitTypeChart('unitType2')
-            unitTypeChart('unitType3')
-            unitTypeChart('unitType4')
-            setChart2()
-        }, 
-        error: function(error_data){
-            console.log("error"),
-            console.log(error_data)
-        }
-    })
-
-    function setChart(name, context){
-        var context = document.getElementById(name);
-        var uChart = new Chart(context, {
-        type: 'line',
-        data: {
-            labels: date,
-            datasets: [{
-                label: 'Cauti Rate',
-                data: rate,
-                tension: 0,
-                backgroundColor: 'rgba(0,123,255,0.1)',
-                borderColor: 'rgba(0,123,255,1)',
-                pointBackgroundColor: '#ffffff',
-                pointHoverBackgroundColor: 'rgb(0,123,255)',
-                borderWidth: 2,
-                pointHoverRadius: 3,
-                fill: false
-                },
-                {
-                label: 'Warning',
-                data: warning, 
-                tension: 0,
-                backgroundColor: 'rgba(255,215,0,0.1)',
-                borderColor: 'rgba(255,215,0,1)',
-                pointBackgroundColor: '#ffffff',
-                pointHoverBackgroundColor: 'rgba(255,215,0,1)',
-                borderDash: [3, 3],
-                borderWidth: 2,
-                pointRadius: 0,
-                pointHoverRadius: 2,
-                pointBorderColor: 'rgba(255,215,0,1)',
-                fill: '+1'
-                },
-                {
-                label: 'Upper Bound',
-                data: upper, 
-                tension: 0,
-                backgroundColor: 'rgba(255,65,105,0.1)',
-                borderColor: 'rgba(255,65,105,1)',
-                pointBackgroundColor: '#ffffff',
-                pointHoverBackgroundColor: 'rgba(255,65,105,1)',
-                borderDash: [3, 3],
-                borderWidth: 2,
-                pointRadius: 0,
-                pointHoverRadius: 2,
-                pointBorderColor: 'rgba(255,65,105,1)',
-                fill: 'end'
-                }]
-            },
-        options: {
-          scales: {
-            xAxes: [{
-              type: 'time',
-              time: {
-                unit: 'month',
-                displayFormats: {
-                  month: 'MMM YYYY'
-                }
-              }
-            }]
-          }
-        }
-      });
-    }
-    function unitTypeChart(name){
-      new Chart(document.getElementById(name), {
-        type: 'line',
-        data: {
-          datasets: [
-          {
-            label: 'unitName',
-            data: rate
-          }]
-        },
-        options: {
-          scales: {
-            xAxes: [{
-              ticks: {
-                display: false
-              }
-            }]
-          }
-        }
-      });
-    }
-
-    function setChart2(){
-      new Chart(document.getElementById("doughnut-chart"), {
-      type: 'doughnut',
-      data: {
-        labels: ["Unit1", "Unit2", "Unit3", "Unit4", "Unit5"],
-        datasets: [
-          {
-            label: "Population (millions)",
-            backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
-            data: [2478,5267,734,784,433]
-          }
-        ]
-      },
-      options: {
-        title: {
-          display: true,
-          text: 'Predicted world population (millions) in 2050'
-          }
-        }
-      });
-    }
-    </script>
+    <script src={% static "js/base.js"%}></script>
   </body>
 </html>

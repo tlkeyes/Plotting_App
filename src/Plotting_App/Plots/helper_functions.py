@@ -11,25 +11,33 @@ from .models import RawMonthlyCurrent2 as RawData
 
 
 #   BELOW ARE THE TEST FUNTCIONS FOR COLLECTING THE DATA
+
 def collect_source_test(facility):
     source = RawData.objects.filter(jarid=facility, year__gte=2016)
-    source = source.filter(process_outcome='Outcome', measure_name__in=['Clabsi'])
+    source = source.filter(process_outcome='Outcome', measure_name__in=['Cauti'])
     source = source.values('measure_name', 'year', 'month').annotate(numerator=Sum('numerator'), denominator=Sum('denominator'))
 
     measure_names = source.values_list('measure_name', flat=True).distinct()
 
     #   CONVERT TO DATAFRAME
     source = DataFrame.from_records(source)
+
+    #   CALCULATE VARIABLES
+    u_hat = (source.numerator[source['year']==2016].sum()/source.denominator[source['year']==2016].sum())*1000
     
     #   ADD CUSTOM COLUMNS
     source['day'] = 1
     source['date'] = to_datetime(source[['year', 'month', 'day']])
     source['rate'] = round(source['numerator']/source['denominator']*1000,7)
+    source['3lower'] = round(u_hat - 3*np.sqrt(u_hat/(source.denominator/1000)),3)
+    source['3upper'] = round(u_hat + 3*np.sqrt(u_hat/(source.denominator/1000)),3)
+    source['2lower'] = round(u_hat - 2*np.sqrt(u_hat/(source.denominator/1000)),3)
+    source['2upper'] = round(u_hat + 2*np.sqrt(u_hat/(source.denominator/1000)),3)
 
     #   INDEX DATAFRAME
     source = source.set_index('measure_name').sort_values(by=['year','month'])
 
-    return source, measure_names
+    return source, measure_names, u_hat
 
 #   BELOW ARE THE TEST FUNTCIONS FOR CREATING PLOT DATA
 
