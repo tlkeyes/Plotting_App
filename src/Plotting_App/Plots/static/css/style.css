@@ -1,15 +1,16 @@
 /* Other styles related to cards below the uchart canvas */
 .wrapper {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 10px;
-  grid-auto-flow: dense;
-  list-style: none;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 }
 
-.chart-container {
-  position: relative;
-  margin: auto;
-  height: 80vh;
-  width: 80vw;
+.wrapper2 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  min-width: 0;
+}
+
+.grid-cell {
+  margin: 8px;
+  min-width: 0;
 }

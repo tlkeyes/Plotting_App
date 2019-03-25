@@ -11,12 +11,11 @@ endpoint = 'api/chart/data'
             upper = data.upper
             setChart('uChart')
             setChart2()
+            setChart3()
             unitTypeChart('unitType1')
             unitTypeChart('unitType2')
             unitTypeChart('unitType3')
             unitTypeChart('unitType4')
-            setChart3()
-            
         }, 
         error: function(error_data){
             console.log("error"),
@@ -88,27 +87,25 @@ endpoint = 'api/chart/data'
         }
       });
     }
-    function unitTypeChart(name){
-      new Chart(document.getElementById(name), {
+    function unitTypeChart(chartName){
+      new Chart(document.getElementById(chartName), {
         type: 'line',
         data: {
-          datasets: [
-          {
-            label: 'unitName',
-            data: rate
-          }]
-        },
-        options: {
-          scales: {
-            xAxes: [{
-              ticks: {
-                display: false
-              }
+          datasets: [{
+            label: 'Cauti Rate',
+            data: rate,
+            tension: 0,
+            backgroundColor: 'rgba(0,123,255,0.1)',
+            borderColor: 'rgba(0,123,255,1)',
+            pointBackgroundColor: '#ffffff',
+            pointHoverBackgroundColor: 'rgb(0,123,255)',
+            borderWidth: 2,
+            pointHoverRadius: 3,
+            fill: false
             }]
-          }
         }
-      });
-    }
+      })
+    };
 
     function setChart2(){
       new Chart(document.getElementById("doughnut-chart"), {
@@ -133,6 +130,8 @@ endpoint = 'api/chart/data'
 
     function setChart3(){
         new Chart(document.getElementById("bar-chart"), {
+        responsive: true,
+        maintainAspectRatio: false,
         type: 'horizontalBar',
         data: {
             labels: ["Unit1", "Unit2", "Unit3", "Unit4", "Unit5"],
