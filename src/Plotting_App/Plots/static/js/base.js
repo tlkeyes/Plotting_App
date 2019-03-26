@@ -10,12 +10,12 @@ endpoint = 'api/chart/data'
             warning = data.warning
             upper = data.upper
             setChart('uChart')
-            setChart2()
-            setChart3()
             unitTypeChart('unitType1')
             unitTypeChart('unitType2')
             unitTypeChart('unitType3')
             unitTypeChart('unitType4')
+            setChart2()
+            setChart3()
         }, 
         error: function(error_data){
             console.log("error"),
@@ -23,9 +23,8 @@ endpoint = 'api/chart/data'
         }
     })
 
-    function setChart(name, context){
-        var context = document.getElementById(name);
-        var uChart = new Chart(context, {
+    function setChart(name){
+        new Chart(document.getElementById(name), {
         type: 'line',
         data: {
             labels: date,
@@ -85,14 +84,15 @@ endpoint = 'api/chart/data'
             }]
           }
         }
-      });
+      })
     }
     function unitTypeChart(chartName){
       new Chart(document.getElementById(chartName), {
         type: 'line',
         data: {
+          labels: date,
           datasets: [{
-            label: 'Cauti Rate',
+            label: chartName,
             data: rate,
             tension: 0,
             backgroundColor: 'rgba(0,123,255,0.1)',
@@ -103,9 +103,18 @@ endpoint = 'api/chart/data'
             pointHoverRadius: 3,
             fill: false
             }]
+        },
+        options: {
+          scales: {
+            xAxes: [{
+              ticks: {
+                display: false
+              }
+            }]
+          }
         }
       })
-    };
+    }
 
     function setChart2(){
       new Chart(document.getElementById("doughnut-chart"), {
@@ -125,13 +134,11 @@ endpoint = 'api/chart/data'
           text: "Patient Days Across All Unit Types"
           }
         }
-      });
+      })
     }
 
     function setChart3(){
         new Chart(document.getElementById("bar-chart"), {
-        responsive: true,
-        maintainAspectRatio: false,
         type: 'horizontalBar',
         data: {
             labels: ["Unit1", "Unit2", "Unit3", "Unit4", "Unit5"],

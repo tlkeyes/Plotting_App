@@ -1,11 +1,6 @@
 /* Other styles related to cards below the uchart canvas */
 .wrapper {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-}
-
-.wrapper2 {
-  display: grid;
   grid-template-columns: repeat(3, 1fr);
   min-width: 0;
 }
