@@ -87,7 +87,10 @@ endpoint = 'api/chart/data'
       })
     }
     function unitTypeChart(chartName){
-      new Chart(document.getElementById(chartName), {
+      var canvas = document.getElementById(chartName);
+      var ctx = canvas.getContext("2d");
+
+      new Chart(ctx, {
         type: 'line',
         data: {
           labels: date,
@@ -158,3 +161,21 @@ endpoint = 'api/chart/data'
         }
         })
     }
+
+    var myChart = new Chart(ctx, {
+      type: 'line',
+      data: data,
+      options: {
+        "horizontalLine": [{
+          "y": 82,
+          "style": "rgba(255, 0, 0, .4)",
+          "text": "max"
+        }, {
+          "y": 60,
+          "style": "#00ffff",
+        }, {
+          "y": 44,
+          "text": "min"
+        }]
+      }
+    });
