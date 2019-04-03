@@ -16,11 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from Plots.views import HomeView, ChartData, ShardView, HomeView_test
+from Plots.views_test import TestApiView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', HomeView.as_view(), name='home'),
     path('test', HomeView_test.as_view(), name='home-test'),
     path('api/chart/data', ChartData.as_view(), name='api-chart-data'),
+    path('api/chart/data/test', TestApiView.as_view(), name='test-api-chart-data'),
     path('shards', ShardView.as_view(), name='shard'),
 ]

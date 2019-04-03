@@ -76,3 +76,4 @@ class ChartData(APIView):
             'upper': source['3upper']
         }
         return Response(context)
+
