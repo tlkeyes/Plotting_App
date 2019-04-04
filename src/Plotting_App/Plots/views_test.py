@@ -11,7 +11,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 
 # IMPORT HELPER FUNCTIONS
-from .db_functions import collect_source, overall_rate, get_measure_names, measure_rate
+from .db_functions import collect_source, overall_rate, get_unit_types, unit_rate
 
 # IMPORT MISC
 import pandas as pd
@@ -25,20 +25,27 @@ class TestApiView(APIView):
         """
         RETURN A DICTIONARY OF DATA
         """
-        source = collect_source(facility=19284)
-        measure_names = get_measure_names(data=source)
+        source = collect_source(facility=19284, measure_name='Cauti')
+        unit_types = get_unit_types(data=source)
 
         overall = overall_rate(data=source)
-        measure_data = {}
+        
+        # CREATE MEASURE DATA DICTIONARY
+        unit_data = {}
 
-        for name in measure_names:
-            measure_data[name] = measure_rate(data=source, measure_name=name)
+        for item in unit_types:
+            unit_data[item] = unit_rate(data=source, unit_type=item)
         
         plot_data = {
-            'overall': overall,
-            'measure_data': measure_data
+            'date': overall['date'],
+            'overall': {
+                'rate': overall['rate'],
+                'warning': overall['2upper'],
+                'upper': overall['3upper']
+            },
+            'unit_data': unit_data
         }
 
-        return plot_data
+        return Response(plot_data)
 
 
