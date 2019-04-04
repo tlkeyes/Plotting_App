@@ -11,7 +11,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 
 # IMPORT HELPER FUNCTIONS
-from .db_functions import collect_source, overall_rate, get_unit_types, unit_rate
+from .db_functions import collect_source, overall_rate, get_unit_types, unit_rate, df_collect_source, df_overall, df_unit_type, df_unit_rate
 
 # IMPORT MISC
 import pandas as pd
@@ -47,5 +47,37 @@ class TestApiView(APIView):
         }
 
         return Response(plot_data)
+
+class TestApiViewDf(APIView):
+    authentication_classes = []
+    permission_classes = []
+
+    def get(self, request, format=None):
+        """
+        RETURN A DICTIONARY OF DATA
+        """
+        source = df_collect_source(facility=19284, measure_name='Cauti')
+
+        overall = df_overall(source_df=source)
+
+        unit = df_unit_type(source_df=source)
+
+        unit_data = {}
+
+        for item in unit.index.unique(level='unit_type'):
+            unit_data[item] = df_unit_rate(unit, item)
+
+        plot_data = {
+            'date': overall.index,
+            'overall': {
+                'rate': overall['rate'],
+                'warning': overall['2upper'], 
+                'upper': overall['3upper']
+            },
+            'unit_data': unit_data
+        }
+
+        return Response(plot_data)
+
 
 

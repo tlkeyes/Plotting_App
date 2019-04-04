@@ -45,6 +45,8 @@ def create_rate_bounds(data):
     source['rate'] = np.round(weird_division(source['numerator'], source['denominator'])*1000,4)
     source['3upper'] = np.round(u_hat + 3*np.sqrt(inner_term),4)
     source['2upper'] = np.round(u_hat + 2*np.sqrt(inner_term),4)
+
+    source.drop(['numerator', 'denominator','year'], axis=1)
     
     return source
 
@@ -81,6 +83,68 @@ def unit_rate(data, unit_type):
     unit = create_rate_bounds(data=unit)
 
     unit = unit.sort_values(by=['year', 'month'])
+
+    unit = {
+        'rate': unit['rate']
+    }
+
+    return unit
+
+# CREATE DATA FRAME FUNTIONS FOR OVERALL AND UNIT_TYPE FOR TESTING
+
+def df_collect_source(facility, measure_name):
+
+    # COLLECT INITAL SOURCE DATA
+    source = RawData.objects.filter(jarid=facility, measure_name=measure_name, process_outcome='Outcome', year__gte=2016)
+    source = source.values('measure_name', 'unit_type', 'year', 'month', 'numerator', 'denominator')
+
+    source = DataFrame.from_records(source)
+    source['day'] = 1
+    source['date'] = to_datetime(source[['year', 'month', 'day']])
+
+    source.drop(['day', 'month','year'], axis=1)
+
+    return source
+
+def df_create_rate_bounds(data):
+    source = data
+
+    # ESTABLISH BASELINE RATE (UHAT)
+    u_hat = round((source.numerator[source.index.year == 2016].sum()/source.denominator[source.index.year == 2016].sum())*1000,10)
+    
+    # CREATE CUSTOM COLUMNS
+    inner_term = weird_division(u_hat, source['denominator']/1000)
+    source['rate'] = np.round(weird_division(source['numerator'], source['denominator'])*1000,4)
+    source['3upper'] = np.round(u_hat + 3*np.sqrt(inner_term),4)
+    source['2upper'] = np.round(u_hat + 2*np.sqrt(inner_term),4)
+
+    source.drop(['numerator', 'denominator'], axis=1)
+    
+    return source
+
+def df_overall(source_df):
+    
+    overall = source_df.groupby(['measure_name','date'])['numerator', 'denominator'].sum().reset_index()
+    overall = overall.set_index(['date'])
+
+    overall = df_create_rate_bounds(overall)
+
+    return overall
+
+def df_unit_type(source_df):
+    unit = source_df.groupby(['measure_name', 'unit_type', 'date'])['numerator', 'denominator'].sum().reset_index()
+
+    unit = unit.set_index(['unit_type']).sort_index()
+
+    return unit
+
+def df_unit_rate(source_df, unit_type):
+    
+    unit = source_df.loc[(unit_type)]
+    unit['rate'] = np.round(weird_division(unit['numerator'], unit['denominator'])*1000, 3)
+
+    unit = unit.reset_index()
+    unit = unit.drop(['measure_name', 'unit_type', 'date'], axis=1)
 
     unit = {
         'rate': unit['rate']
