@@ -224,7 +224,18 @@
               <!-- End Users By Device Stats -->
             </div>
             <div class='row'>
-            
+              <div class='card'>
+                <ul>
+                  <li>
+                    <p>First Item in List</p>
+                  </li>
+                  {% for item in date %}
+                    <li>
+                    <p>{{item.as_p}}</p>
+                    </li>
+                  {% endfor %}
+                </ul>
+              </div>
             </div>
             </div>
           </div>

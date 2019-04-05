@@ -30,9 +30,9 @@ def get_unit_types(data):
     return unit_types
 
 def weird_division(numerator, denominator):
-    result = np.divide(numerator, denominator, out=np.zeros_like(denominator), where=denominator!=0)
+    out = np.divide(numerator, denominator, out=np.zeros_like(denominator), where=denominator!=0)
 
-    return result
+    return out
 
 def create_rate_bounds(data):
     source = data

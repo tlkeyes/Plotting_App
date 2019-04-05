@@ -1,7 +1,7 @@
 /* Other styles related to cards below the uchart canvas */
 .wrapper {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   min-width: 0;
 }
 
