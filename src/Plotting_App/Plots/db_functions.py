@@ -140,7 +140,7 @@ def df_unit_type(source_df):
 
 def df_unit_rate(source_df, unit_type):
     
-    unit = source_df.loc[(unit_type)]
+    unit = source_df.loc[(unit_type)].copy()
     unit['rate'] = np.round(weird_division(unit['numerator'], unit['denominator'])*1000, 3)
 
     unit = unit.reset_index()

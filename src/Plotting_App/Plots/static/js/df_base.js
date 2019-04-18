@@ -4,6 +4,7 @@ endpoint = 'api/chart/data/testdf'
         method: "GET",
         url : endpoint,
         success: function(data){
+            console.log("Collected the data!!"),
             date = data.date
             rate = data.overall.rate
             warning = data.overall.warning
@@ -96,7 +97,7 @@ endpoint = 'api/chart/data/testdf'
                     label: unit_name,
                     data: rate_data,
                     tension: 0,
-                    backgroundColor: 'rgba(0,123,255,0.1)',
+                    backgroundColor: '#fafafa',
                     borderColor: 'rgba(0,123,255,1)',
                     pointBackgroundColor: '#ffffff',
                     pointHoverBackgroundColor: 'rgb(0,123,255)',
