@@ -11,9 +11,8 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 
 # IMPORT HELPER FUNCTIONS
-from .db_functions import (collect_source, overall_rate, 
-                            get_unit_types, unit_rate, 
-                            df_collect_source, df_overall, df_unit_type, df_unit_rate
+from .db_functions import (
+                            df_collect_source, df_create_rate_bounds, df_unit_type, df_unit_rate
                             )
 
 # IMPORT MISC
@@ -38,7 +37,7 @@ class TestApiViewDf(APIView):
         """
         source = df_collect_source(facility=19284, measure_name='Cauti')
 
-        overall = df_overall(source_df=source)
+        bounds = df_create_rate_bounds(source_df=source)
 
         unit = df_unit_type(source_df=source)
         unique_units = unit.index.unique(level='unit_type')
@@ -49,12 +48,12 @@ class TestApiViewDf(APIView):
             unit_data[item] = df_unit_rate(unit, item)
 
         plot_data = {
-            'date': overall.index,
+            'date': bounds.index,
             'units': unique_units,
-            'overall': {
-                'rate': overall['rate'],
-                'warning': overall['2upper'], 
-                'upper': overall['3upper']
+            'uchart': {
+                'rate': bounds['rate'],
+                'warning': bounds['2upper'], 
+                'upper': bounds['3upper']
             },
             'unit_data': unit_data
         }

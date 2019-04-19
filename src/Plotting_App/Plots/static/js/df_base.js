@@ -6,14 +6,14 @@ endpoint = 'api/chart/data/testdf'
         success: function(data){
             console.log("Collected the data!!"),
             date = data.date
-            rate = data.overall.rate
-            warning = data.overall.warning
-            upper = data.overall.upper
+            rate = data.uchart.rate
+            warning = data.uchart.warning
+            upper = data.uchart.upper
             units = data.units
             unit_data = data.unit_data
             setChart('uChart')
             unitTypeCharts()
-            setChart3()
+            unitScatterChart()
         }, 
         error: function(error_data){
             console.log("error"),
@@ -118,6 +118,31 @@ endpoint = 'api/chart/data/testdf'
                 }
             })
         }
+    }
+    function unitScatterChart(){
+      var arr = [];
+      for(let i = 0; i < units.length; i++){
+        var unit_name = units[i];
+        var x = unit_data[unit_name].overall.denominator;
+        var y = unit_data[unit_name].overall.rate;
+        arr.push([x,y])
+      }
+      console.log(arr)
+      new Chart(document.getElementById("unit-scatter-overall"),{
+        type: 'scatter',
+        data: {
+          datasets: [
+            {
+              label: 'Rates',
+              data: arr
+            }
+          ]
+        },
+          options: {
+            title: 'Overall Rate Scatter Plot',
+            responsive: true
+          }
+      })
     }
 
     function setChart3(){
