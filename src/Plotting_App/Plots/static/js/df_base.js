@@ -120,49 +120,47 @@ endpoint = 'api/chart/data/testdf'
         }
     }
     function unitScatterChart(){
-      var arr = [];
+      var data = [];
+      var labels = []
       for(let i = 0; i < units.length; i++){
         var unit_name = units[i];
         var x = unit_data[unit_name].overall.denominator;
         var y = unit_data[unit_name].overall.rate;
-        arr.push([x,y])
+        data.push({x: x, y: y})
+        labels.push(unit_name)
       }
-      console.log(arr)
-      new Chart(document.getElementById("unit-scatter-overall"),{
+      console.log(data)
+      new Chart(document.getElementById("unit-scatter-overall").getContext("2d"),{
         type: 'scatter',
         data: {
+          labels: labels,
           datasets: [
             {
-              label: 'Rates',
-              data: arr
+              data: data,
+              backgroundColor: 'rgba(0,123,255,0.1)',
+              borderColor: 'rgba(0,123,255,1)',
+              pointBackgroundColor: '#ffffff',
+              pointHoverBackgroundColor: 'rgb(0,123,255)',
+              borderWidth: 2,
+              pointHoverRadius: 3
             }
           ]
         },
-          options: {
-            title: 'Overall Rate Scatter Plot',
-            responsive: true
-          }
-      })
-    }
-
-    function setChart3(){
-        new Chart(document.getElementById("bar-chart"), {
-        type: 'horizontalBar',
-        data: {
-            labels: ["Unit1", "Unit2", "Unit3", "Unit4", "Unit5"],
-            datasets: [
-                {
-                    label: "stuff",
-                    backgroundColor: "#3e95cd",
-                    data: [2478,5267,734,784,433]
-                }
-            ]
-        },
         options: {
-            title: {
-                display: false,
-                text: "Some other metric"
+          scales: {
+              xAxes: [{
+                  type: 'linear',
+                  position: 'bottom'
+              }]
+          },
+          tooltips: {
+            displayColors: false,
+            callbacks: {
+              title: function(tooltipItem, data) {
+                return data['labels'][tooltipItem[0]['index']];
+              }
             }
+          }
         }
-        })
+      })
     };
