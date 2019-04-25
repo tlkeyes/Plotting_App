@@ -1,5 +1,7 @@
 # Plotting_App
 
-This is where the readme will go, and hopefully contain a gif!!
+The goal of this application is to provide a dashboard of Patient Safety information to the end user. 
+
+Below is a gif, visualizing the majority of progress on the project (application).
 
 ![](Readme.gif)
