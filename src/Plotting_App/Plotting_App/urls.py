@@ -15,15 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from Plots.views import HomeView, ChartData, ShardView, HomeView_test
 from Plots.views_test import TestApiViewDf, HomeViewDf_test
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', HomeView.as_view(), name='home'),
-    path('test', HomeView_test.as_view(), name='home-test'),
     path('testdf', HomeViewDf_test.as_view(), name='home-df-test'),
-    path('api/chart/data', ChartData.as_view(), name='api-chart-data'),
     path('api/chart/data/testdf', TestApiViewDf.as_view(), name='test-api-chart-data-df'),
-    path('shards', ShardView.as_view(), name='shard'),
 ]
