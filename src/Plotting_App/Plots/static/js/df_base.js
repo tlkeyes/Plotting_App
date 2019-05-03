@@ -16,7 +16,7 @@ endpoint = 'api/chart/data/testdf'
             unitScatterChart()
         }, 
         error: function(error_data){
-            console.log("error"),
+            console.log("error loading the data"),
             console.log(error_data)
         }
     })
