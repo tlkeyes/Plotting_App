@@ -1,25 +1,25 @@
-endpoint = 'api/chart/data/testdf'
-    $.ajax({
+// endpoint = 'api/chart/data/unitsdf'
+//     $.ajax({
 
-        method: "GET",
-        url : endpoint,
-        success: function(data){
-            console.log("Collected the data!!"),
-            date = data.date
-            rate = data.uchart.rate
-            warning = data.uchart.warning
-            upper = data.uchart.upper
-            units = data.units
-            unit_data = data.unit_data
-            setChart('uChart')
-            unitTypeCharts()
-            unitScatterChart()
-        }, 
-        error: function(error_data){
-            console.log("error loading the data"),
-            console.log(error_data)
-        }
-    })
+//         method: "GET",
+//         url : endpoint,
+//         success: function(data){
+//             console.log("Collected the data!!"),
+//             date = data.date
+//             rate = data.uchart.rate
+//             warning = data.uchart.warning
+//             upper = data.uchart.upper
+//             units = data.units
+//             unit_data = data.unit_data
+//             setChart('uChart')
+//             unitTypeCharts()
+//             unitScatterChart()
+//         }, 
+//         error: function(error_data){
+//             console.log("error loading the data"),
+//             console.log(error_data)
+//         }
+//     })
 
     function setChart(name){
         new Chart(document.getElementById(name), {

@@ -28,24 +28,23 @@
               </a>
             </nav>
           </div>
+          <!-- Begin Content Sidenav -->
           <div class="nav-wrapper">
             <ul class="nav flex-column">
               <li class="nav-item">
-                <a class="nav-link active" href="testdf">
-                <i class="material-icons">edit</i>
-                <span>Report Distributor Emulation</span>
+                <a class="nav-link dropdown-toggle active" href="#reportdistributor" data-toggle='collapse'>
+                  <i class="material-icons">edit</i>
+                  <span>Report Distributor Emulation</span>
+                  <i class="fa fa-fw fa-angle-down pull-right"></i>
                 </a>
+                {% for i in measures %}
+                  <ul id='reportdistributor' class='collapse'>
+                    <li><a href='#'><i class='fa fa-angle-double-right'></i> {{i}} </a></li>
+                  </ul>
+                {% endfor %}
               </li>
-              <li class="nav-item">
-                <a class="nav-link " href="tables.html">
-                <i class="material-icons">table_chart</i>
-                <span>AHRQ Surveys</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link " href="errors.html">
-                <i class="material-icons">error</i>
-                <span>Errors</span>
+              <li class='nav-item'>
+                <a class='nav-link dropdown-toggle' href='#ahrq' data-toggle='collapse'>
                 </a>
               </li>
             </ul>
@@ -74,11 +73,6 @@
                   </div>
                 </li>
               </ul>
-              <nav class="nav">
-                <a href="#" class="nav-link nav-link-icon toggle-sidebar d-md-inline d-lg-none text-center border-left" data-toggle="collapse" data-target=".header-navbar" aria-expanded="false" aria-controls="header-navbar">
-                <i class="material-icons">&#xE5D2;</i>
-                </a>
-              </nav>
             </nav>
           </div>
           <!-- / .main-navbar -->
@@ -185,9 +179,9 @@
                           <input type="text" class="input-sm form-control" name="start" placeholder="Start Date" id="blog-overview-date-range-1">
                           <input type="text" class="input-sm form-control" name="end" placeholder="End Date" id="blog-overview-date-range-2">
                           <span class="input-group-append">
-                          <span class="input-group-text">
-                          <i class="material-icons"></i>
-                          </span>
+                            <span class="input-group-text">
+                              <i class="material-icons"></i>
+                            </span>
                           </span>
                         </div>
                       </div>
@@ -253,9 +247,7 @@
                     </div>
                     <div class="col-lg-12 col-lg-2">
                       <div class='wrapper'>
-                          {% for item in unit_types %}
-                            <div><canvas id="{{item}}" style="max-width: 100% !important;"></canvas></div>
-                          {% endfor %}
+
                       </div>
                     </div>
                   </div>
@@ -290,6 +282,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Sharrre/2.0.1/jquery.sharrre.min.js"></script>
     <script src={% static "js/extras.1.1.0.min.js"%}></script>
     <script src={% static "js/shards-dashboards.1.1.0.min.js"%}></script>
-    <script src={% static "js/df_base.js"%}></script>
+    <script src={% static "js/table_df.js"%}></script>
   </body>
 </html>

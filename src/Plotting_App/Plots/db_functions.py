@@ -1,9 +1,5 @@
 import numpy as np
 from pandas import DataFrame, to_datetime
-from bokeh.plotting import Figure
-from bokeh.layouts import gridplot, layout, column, row
-from bokeh.models import Panel, BoxAnnotation, Band, Span, ColumnDataSource, DataTable 
-from bokeh.transform import jitter
 from django.db.models import Sum
 
 # IMPORT MODELS

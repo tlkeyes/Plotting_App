@@ -1,7 +1,5 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView, View
-from bokeh.models import Tabs
-from bokeh.embed import components
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -19,15 +17,23 @@ from .db_functions import (
 import pandas as pd
 from django.shortcuts import render
 
-class HomeViewDf_test(View):
+class HomeViewUnitsDf_test(View):
     def get(self, request, *args, **kwargs):
         source = df_collect_source(facility=19284, measure_name='Cauti')
 
         unit = df_unit_type(source_df=source)
         unique_units = unit.index.unique(level='unit_type')
-        return(render(request, 'Plots/base_test.html', {'unit_types': unique_units}))
+        return(render(request, 'Plots/unittypes_base_test.html', {'unit_types': unique_units}))
 
-class TestApiViewDf(APIView):
+class HomeViewTableDf_test(View):
+    def get(self, request, *args, **kwargs):
+        source = df_collect_source(facility=19284, measure_name='Cauti')
+
+        measures = ['Clabsi','Cauti','ADE','SSI', 'VAE', 'PSI']
+
+        return(render(request, 'Plots/test/table_base_test.html', {'measures': measures}))
+
+class TestApiUnitViewDf(APIView):
     authentication_classes = []
     permission_classes = []
 

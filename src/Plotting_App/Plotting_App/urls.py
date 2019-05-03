@@ -15,10 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from Plots.views_test import TestApiViewDf, HomeViewDf_test
+from Plots.views_test import TestApiUnitViewDf, HomeViewUnitsDf_test, HomeViewTableDf_test
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('testdf', HomeViewDf_test.as_view(), name='home-df-test'),
-    path('api/chart/data/testdf', TestApiViewDf.as_view(), name='test-api-chart-data-df'),
+    path('test/unitsdf', HomeViewUnitsDf_test.as_view(), name='units-df-test'),
+    path('test/tabledf', HomeViewTableDf_test.as_view(), name='table-df-test'),
+    path('test/api/chart/data/unitsdf', TestApiUnitViewDf.as_view(), name='api-chart-unitdata-df'),
 ]
